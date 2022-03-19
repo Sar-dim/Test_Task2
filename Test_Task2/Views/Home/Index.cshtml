@@ -1,0 +1,42 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Организация</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form method="post" asp-area="" asp-controller="Home" asp-action="Synchronize">
+            <input type="submit" value="Синхронизировать" />
+        </form>
+        <h3>Список подразделений</h3>
+        <table>
+            <tr>
+                <td><p>Id подразделения</p></td>
+                <td><p>Имя подразделения</p></td>
+                <td><p>Статус подразделения</p></td>
+                <td><p>Id головного подразделения</p></td>
+            </tr>
+            @foreach (var Subdivision in Model)
+            {
+                <tr>
+                    <td><p>@Subdivision.Id</p></td>
+                    <td><p>@Subdivision.Name</p></td>
+                    <td><p>@Subdivision.Status</p></td>
+                    <td><p>@Subdivision.OwnerId</p></td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
